@@ -1,4 +1,4 @@
-
+import os, sys
 cover = """
 #############################################################
 #                 Image Processing Tools(v1.0)              #
@@ -12,7 +12,7 @@ cover = """
 #Print [1]-[4] to Choose a Function, and [q] to quit.       #
 #############################################################
 """
-
+pwd = os.getcwd()
 while True:
     print(cover)
     func = raw_input()
