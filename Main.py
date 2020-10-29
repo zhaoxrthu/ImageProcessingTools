@@ -32,5 +32,6 @@ while True:
         break
     else:   
         print("Illegal Input!")
+        continue
     obj.run()
 print("Quit.")
