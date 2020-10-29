@@ -1,4 +1,8 @@
 import os, sys
+import ImageProcessingTools.MovieLinesSplicing as iMLS
+#from ImageProcessingTools import *
+#from ImageProcessingTools import MovieLinesSplicing
+#from ImageProcessingTools import MovieLinesSplicing as ipts.MLS
 cover = """
 #############################################################
 #                 Image Processing Tools(v1.0)              #
@@ -16,10 +20,17 @@ pwd = os.getcwd()
 while True:
     print(cover)
     func = raw_input()
-    if func == '1':     pass
-    elif func == '2':   pass
-    elif func == '3':   pass
-    elif func == '4':   pass
-    elif func == 'q':   break
-    else:   print("Illegal Input!")
+    if func == '1':  
+        obj = iMLS.mls(pwd)
+    elif func == '2':   
+        pass
+    elif func == '3':   
+        pass
+    elif func == '4':   
+        pass
+    elif func == 'q':   
+        break
+    else:   
+        print("Illegal Input!")
+    obj.run()
 print("Quit.")
