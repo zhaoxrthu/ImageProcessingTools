@@ -5,9 +5,10 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 class mls():
     def __init__(self, pwd):
         self.pwd = pwd
-        self.srcPath = pwd + "\\Source"
-        self.fnsPath = pwd + "\\Finish"
-        self.resPath = pwd + "\\Result"
+        self.srcPath = pwd + "//Source"
+        self.fnsPath = pwd + "//Finish"
+        self.resPath = pwd + "//Result"
+        self.logPath = pwd + "//Result//log.txt"
         self.t0 = time.time()
         self.picNum = 0
         self.srcSize, self.resSize = 0, 0
@@ -29,6 +30,7 @@ class mls():
 
     def loadFiles(self):
         print("Loading Pictures from: //Source")
+        self.log.append("Loading Pictures from: //Source")
         picPaths = []
         if len(os.listdir(self.srcPath)) == 0:
             print("There is No Picture in the //Source.")
@@ -41,8 +43,6 @@ class mls():
             if fileName.split('.')[-1] in ['png', 'jpg', 'jpeg', 'bmp']:
                 picPaths.append(fullPath)
                 self.picNum = self.picNum + 1
-                
-
         imgCover = Image.open(picPaths[0])
         L, H = imgCover.size[0], imgCover.size[1]
         strH = int(H * self.r)
@@ -51,7 +51,6 @@ class mls():
         mrgImage.paste(imgCover.crop((0, 0, L, cvrH)), (0, 0, L, cvrH))
         upH = cvrH
         try:
-        #mrgImage.save('D://Project//ImageProcessingTools//ImageProcessingTools//Re.jpg')
             for i, picpath in enumerate(picPaths):
                 curSize = os.path.getsize(picpath)
                 logStr = "\t%s, %.1fkb" % (picpath.split("//")[-1], curSize/1024.0)
@@ -84,6 +83,11 @@ class mls():
             curStr = "Moving Source Pictures to //Finish//Source_%s" % (timeStamp)
             print(curStr)
             self.log.append(curStr)
+            logFile = open(self.logPath, "a+")
+            for str in self.log:
+                logFile.write(str + '\n')
+            logFile.write('\n')
+            logFile.close()
         except Exception as e:
             ex_type, ex_val, ex_stack = sys.exc_info()
             print(ex_type)
