@@ -1,5 +1,7 @@
 import os, sys
 import ImageProcessingTools.MovieLinesSplicing as iMLS
+import ImageProcessingTools.SceneryMosaic as iSCM
+#from ImageProcessingTools import *
 #from ImageProcessingTools import *
 #from ImageProcessingTools import MovieLinesSplicing
 #from ImageProcessingTools import MovieLinesSplicing as ipts.MLS
@@ -23,7 +25,7 @@ while True:
     if func == '1':  
         obj = iMLS.mls(pwd)
     elif func == '2':   
-        pass
+        obj = iSCM.scm(pwd)
     elif func == '3':   
         pass
     elif func == '4':   
