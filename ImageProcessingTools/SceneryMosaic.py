@@ -51,13 +51,41 @@ class scm():
                 self.log.append(logStr)
                 fp = open(picpath,'rb')
                 curIm = Image.open(fp)
-                mrgImage.paste(curIm.crop((0, cvrH, L, H)), (0, upH, L, upH + strH))
+                curL, curH = curIm.size[0], curIm.size[1]
+                curunL = curL // self.picNum
+                curL = curunL * self.picNum
+                curIm = curIm.crop((curunL * i, 0, curunL * (i + 1), curH))
+                scmImage.paste(curIm.resize((unL, H)), (unL * i, 0, unL * (i + 1), H))
                 fp.close()
-                upH = upH + strH
-            self.resImg = mrgImage
+            self.resImg = scmImage
         except Exception as e:
             ex_type, ex_val, ex_stack = sys.exc_info()
             print(ex_type)
             print(ex_val)
         return
+
+    def WriteFiles(self):
+        timeStamp = time.strftime('%m%d%H%M', time.localtime(self.t0))
+        try:
+            self.resImg.save(self.resPath + "//MosaicResult_" + timeStamp + '.jpg')
+            curStr = "Saving Merged Pictures as //Result//MosaicResult_" + timeStamp + ".jpg"
+            print(curStr)
+            self.log.append(curStr)
+            shutil.move(self.srcPath, self.fnsPath)
+            oldName = self.fnsPath + "//Source"
+            newName = self.fnsPath + "//Source_%s" % (timeStamp)
+            os.rename(oldName, newName)
+            os.mkdir(self.srcPath)
+            curStr = "Moving Source Pictures to //Finish//Source_%s" % (timeStamp)
+            print(curStr)
+            self.log.append(curStr)
+            logFile = open(self.logPath, "a+")
+            for str in self.log:
+                logFile.write(str + '\n')
+            logFile.write('\n')
+            logFile.close()
+        except Exception as e:
+            ex_type, ex_val, ex_stack = sys.exc_info()
+            print(ex_type)
+            print(ex_val)
 
