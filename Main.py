@@ -1,6 +1,7 @@
 import os, sys
 import ImageProcessingTools.MovieLinesSplicing as iMLS
 import ImageProcessingTools.SceneryMosaic as iSCM
+import ImageProcessingTools.UnzipFiles as iUZF
 #from ImageProcessingTools import *
 #from ImageProcessingTools import *
 #from ImageProcessingTools import MovieLinesSplicing
@@ -24,11 +25,11 @@ while True:
     func = raw_input()
     if func == '1':  
         obj = iMLS.mls(pwd)
-    elif func == '2':   
+    elif func == '2':
         obj = iSCM.scm(pwd)
-    elif func == '3':   
-        pass
-    elif func == '4':   
+    elif func == '3':
+        obj = iUZF.uzf(pwd)
+    elif func == '4':
         pass
     elif func == 'q':   
         break
