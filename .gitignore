@@ -1,6 +1,7 @@
 *.user
 *.pyc
 *.pyproj
+*.spec
 .gitignore
 Source/
 Result/
