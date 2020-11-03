@@ -37,6 +37,8 @@ class itp():
                 self.FailedList.append(name)
                 if os.path.exists(self.srcPath + "//" + name):
                     os.remove(self.srcPath + "//" + name)
+            del imageList
+            gc.collect()
         self.moveAndLog()
 
     def createTables(self):
@@ -59,7 +61,10 @@ class itp():
             return []
         for picName in picNameList:
             fp = open(fdPath + "//" + picName, 'rb')
-            picList.append(Image.open(fp))
+            img = Image.open(fp)
+            if img.mode != 'RGB':
+                img = img.convert('RGB')
+            picList.append(img)
             sumSize = sumSize + os.path.getsize(fdPath + "//" + picName)
             self.fp.append(fp)
         return picList, sumSize
