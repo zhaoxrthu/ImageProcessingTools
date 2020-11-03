@@ -10,12 +10,10 @@ class uzf():
         self.RarList, self.ZipList = [], []
         self.SuccedList, self.FailedList = [], []
         self.t0 = time.time()
-        self.picNum = 0
-        self.srcSize, self.resSize = 0, 0
         self.log = [time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(self.t0))]
         print("-" * 61)
         print("Unzip Files......")
-        self.log.append("Unzip Files ......")
+        self.log.append("Unzip Files......")
 
     def run(self):
         self.createTables()
@@ -35,17 +33,15 @@ class uzf():
         self.log.append(str)
 
     def deCompression(self):
-        curpath = resPath
         for name in self.ZipList:
             try:
-                if os.path.isdir(curpath) == 0:
-                    os.mkdir(curpath)
+                if os.path.isdir(self.resPath) == 0:
+                    os.mkdir(self.resPath)
                 fz = zipfile.ZipFile(self.srcPath +'//' + name, 'r')
                 for file in fz.namelist():
-                    fz.extract(file, curpath)
+                    fz.extract(file, self.resPath)
                 self.SuccedList.append(name)      
                 print(name + ' unzip successd!')
-                #os.remove(self.srcPath +'//' + name)
             except:
                 self.FailedList.append(name)
                 print(name + ' unzip failed')
@@ -58,19 +54,6 @@ class uzf():
         self.log.append(str2)
 
     def moveAndLog(self):
-        listfile = open(self.logPath, "a+")
-        str = "Decompression Situation: "
-        print(str)
-        listfile.write(str + '\n')
-        for name in self.SuccedList:
-            str = 'S: ' + name
-            print(str)
-            listfile.write(str + '\n')
-        for name in self.FailedList:
-            str = 'F: ' + name
-            print(str)
-            listfile.write(str + '\n')
-        listfile.close()
         timeStamp = time.strftime('%m%d%H%M', time.localtime(self.t0))
         os.mkdir(self.fnsPath + "//Source_%s" % (timeStamp))
         curStr = "Moving Zipfiles to //Finish//Source_%s" % (timeStamp)
@@ -81,6 +64,17 @@ class uzf():
         for str in self.log:
             logFile.write(str + '\n')
         logFile.write('\n')
+        str = "Decompression Situation: "
+        print(str)
+        logFile.write(str + '\n')
+        for name in self.SuccedList:
+            str = 'S: ' + name
+            print(str)
+            logFile.write(str + '\n')
+        for name in self.FailedList:
+            str = 'F: ' + name
+            print(str)
+            logFile.write(str + '\n')
         logFile.close()
         for name in self.SuccedList:
             try:
@@ -89,7 +83,3 @@ class uzf():
                 ex_type, ex_val, ex_stack = sys.exc_info()
                 print(ex_type)
                 print(ex_val)
-
-
-
-
