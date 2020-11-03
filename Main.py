@@ -2,6 +2,7 @@ import os, sys
 import ImageProcessingTools.MovieLinesSplicing as iMLS
 import ImageProcessingTools.SceneryMosaic as iSCM
 import ImageProcessingTools.UnzipFiles as iUZF
+import ImageProcessingTools.ImageToPdfs as iITP
 #from ImageProcessingTools import *
 #from ImageProcessingTools import *
 #from ImageProcessingTools import MovieLinesSplicing
@@ -20,6 +21,9 @@ cover = """
 #############################################################
 """
 pwd = os.getcwd()
+for w in ["//Source", "//Finish", "//Result"]:
+    if os.path.isdir(pwd + w) == 0:
+        os.mkdir(pwd + w)
 while True:
     print(cover)
     func = raw_input()
@@ -30,7 +34,7 @@ while True:
     elif func == '3':
         obj = iUZF.uzf(pwd)
     elif func == '4':
-        pass
+        obj = iITP.itp(pwd)
     elif func == 'q':   
         break
     else:   
