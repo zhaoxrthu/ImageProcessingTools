@@ -17,13 +17,13 @@ class itp():
         print("-" * 61)
         print("Turn Images to Pdf......")
         self.log.append("Turn Images to Pdf......")
-        self.prefix = raw_input("Input The Prefix(Default ""): ")
+        self.prefix = raw_input("Input The Prefix: ")
 
     def run(self):
         self.createTables()
         print("The Source Folder Has %d Folder(s)" % (len(self.foldList)))
         for i, name in enumerate(self.foldList):
-            print("\tTuring %d/%d......" % (i + 1, len(self.foldList)))
+            print("\r\tTuring %s[%d/%d]......" % (name, i + 1, len(self.foldList)))
             try:
                 imageList, sumSize = self.loadImages(self.srcPath + "//" + name)
                 if len(imageList) > 0:
