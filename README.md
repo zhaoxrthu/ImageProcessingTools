@@ -38,18 +38,18 @@ ImageProcessingTools
 
 &emsp;&emsp;输入[1]选择台词截图拼接功能。输入一个小数(0~1, 默认值为0.15)表示台词高度占整个图片的比值, 既拼接过程中除封面图(第一张)外其他图片保留的高度：
 
-![](https://github.com/zhaoxrthu/ImageProcessingTools/blob/main/dist/interface_func1.png)
+![](https://github.com/zhaoxrthu/ImageProcessingTools/blob/main/dist/Pictures/interface_func1.png)
 
 &emsp;&emsp;程序将遍历./Source/文件夹下的所有图片(支持png、jpg、jpeg、bmp格式)并进行拼接，获得如下的长图：
 
-![](https://github.com/zhaoxrthu/ImageProcessingTools/blob/main/dist/MergeResult_11032148.jpg)
+![](https://github.com/zhaoxrthu/ImageProcessingTools/blob/main/dist/Pictures/MergeResult_11032148.jpg)
 
 &emsp;&emsp;拼接成功后结果存储为./Result/MergeResult_${TimeStamp}$.jpg，源文件统一移动到./Finish/Source_${TimeStamp}$文件夹内，程序日志写入./Result/log.txt中。
 
 # 2.2 横向图片拼接
 &emsp;&emsp;输入[2]选择横向图片拼接功能。程序将遍历./Source/文件夹下的所有图片(支持png、jpg、jpeg、bmp格式)并进行拼接，获得如下的图片：
 
-![](https://github.com/zhaoxrthu/ImageProcessingTools/blob/main/dist/MosaicResult_10311430.jpg)
+![](https://github.com/zhaoxrthu/ImageProcessingTools/blob/main/dist/Pictures/MosaicResult_10311430.jpg)
 
 &emsp;&emsp;拼接成功后结果存储为./Result/MosaicResult_${TimeStamp}$.jpg，源文件统一移动到./Finish/Source_${TimeStamp}$文件夹内，程序日志写入./Result/log.txt中。
 
@@ -59,9 +59,9 @@ ImageProcessingTools
 # 2.4 图片转pdf文件
 &emsp;&emsp;输入[4]选择图片转pdf文件功能。程序将遍历./Source/文件夹下的所有有图片(支持png、jpg、jpeg、bmp格式))的文件夹，将其逐一压制为pdf文件。程序会对单个文件夹下的图片按文件名进行自然排序，可输入命名前缀(默认为空值)：
 
-![](https://github.com/zhaoxrthu/ImageProcessingTools/blob/main/dist/interface_func4.png)
+![](https://github.com/zhaoxrthu/ImageProcessingTools/blob/main/dist/Pictures/interface_func4.png)
 
-![](https://github.com/zhaoxrthu/ImageProcessingTools/blob/main/dist/Pic2PdfResult_11041716.png)
+![](https://github.com/zhaoxrthu/ImageProcessingTools/blob/main/dist/Pictures/Pic2PdfResult_11041716.png)
 
 &emsp;&emsp;压制后的pdf文件将命名为${命名前缀}$${文件夹名}$.pdf并保存到./Result/pdf/文件夹下，源文件统一移动到./Finish/Source_${TimeStamp}$文件夹内，程序日志写入./Result/log.txt中。
 
