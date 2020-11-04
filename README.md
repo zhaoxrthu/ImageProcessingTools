@@ -28,7 +28,7 @@ ImageProcessingTools
 
 &emsp;&emsp;运行exe文件(或调用Python脚本)，可得到下列界面：
   
-![界面](https://github.com/zhaoxrthu/ImageProcessingTools/tree/main/dist/interface.png) 
+![](https://github.com/zhaoxrthu/ImageProcessingTools/tree/main/dist/interface.png) 
  
 &emsp;&emsp;若当前路径下无相应文件夹，程序将自动创建./Source/, ./Result/, ./Finish/ 三个文件夹，分别用于存放待处理的资源、存放处理结果、存放处理成功后的源文件。 
 
@@ -38,18 +38,16 @@ ImageProcessingTools
 
 &emsp;&emsp;输入[1]选择台词截图拼接功能。输入一个小数(0~1, 默认值为0.15)表示台词高度占整个图片的比值, 既拼接过程中除封面图(第一张)外其他图片保留的高度：
 
-![界面_功能1](https://github.com/zhaoxrthu/ImageProcessingTools/tree/main/dist/interface_func1.png)
+![](https://github.com/zhaoxrthu/ImageProcessingTools/tree/main/dist/interface_func1.png)
 
 &emsp;&emsp;程序将遍历./Source/文件夹下的所有图片(支持png、jpg、jpeg、bmp格式)并进行拼接，获得如下的长图：
 
-![台词截图拼接结果](https://github.com/zhaoxrthu/ImageProcessingTools/tree/main/dist/MergeResult_11032148.jpg)
+![](https://github.com/zhaoxrthu/ImageProcessingTools/tree/main/dist/MergeResult_11032148.jpg)
 
 &emsp;&emsp;拼接成功后结果存储为./Result/MergeResult_${TimeStamp}$.jpg，源文件统一移动到./Finish/Source_${TimeStamp}$文件夹内。
 
 # 2.2 横向图片拼接
 &emsp;&emsp;输入[2]选择横向图片拼接
-
-
 
 
 
