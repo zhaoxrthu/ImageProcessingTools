@@ -28,7 +28,7 @@ ImageProcessingTools
 
 &emsp;&emsp;运行exe文件(或调用Python脚本)，可得到下列界面：
   
-![](https://github.com/zhaoxrthu/ImageProcessingTools/tree/main/dist/interface.png) 
+![](https://github.com/zhaoxrthu/ImageProcessingTools/blob/main/dist/interface.png) 
  
 &emsp;&emsp;若当前路径下无相应文件夹，程序将自动创建./Source/, ./Result/, ./Finish/ 三个文件夹，分别用于存放待处理的资源、存放处理结果、存放处理成功后的源文件。 
 
