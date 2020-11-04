@@ -3,10 +3,6 @@ import ImageProcessingTools.MovieLinesSplicing as iMLS
 import ImageProcessingTools.SceneryMosaic as iSCM
 import ImageProcessingTools.UnzipFiles as iUZF
 import ImageProcessingTools.ImageToPdfs as iITP
-#from ImageProcessingTools import *
-#from ImageProcessingTools import *
-#from ImageProcessingTools import MovieLinesSplicing
-#from ImageProcessingTools import MovieLinesSplicing as ipts.MLS
 cover = """
 #############################################################
 #                 Image Processing Tools(v1.0)              #
