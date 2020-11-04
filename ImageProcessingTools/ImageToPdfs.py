@@ -24,6 +24,7 @@ class itp():
         print("The Source Folder Has %d Folder(s)" % (len(self.foldList)))
         for i, name in enumerate(self.foldList):
             print("\r\tTuring %s[%d/%d]......" % (name, i + 1, len(self.foldList)))
+            self.t = time.time()
             try:
                 imageList, sumSize = self.loadImages(self.srcPath + "//" + name)
                 if len(imageList) > 0:
@@ -88,7 +89,7 @@ class itp():
             print('Turning ' + name + ' to a pdf failed!')    
             flag, fileSize = False, 0.0
         str = "\tPic Num/Dir Size/Pdf Size/Time: %d/%fMb/%fMb/%fs" % \
-                (len(imageList), sumSize/1048576.0, fileSize/1048576.0,time.time()-self.t0)
+                (len(imageList), sumSize/1048576.0, fileSize/1048576.0,time.time()-self.t)
         print(str)
         self.log.append(str)
         print('\n')
