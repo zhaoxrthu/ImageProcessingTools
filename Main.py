@@ -37,4 +37,6 @@ while True:
         print("Illegal Input!")
         continue
     obj.run()
+    func = raw_input()
 print("Quit.")
+func = raw_input()
