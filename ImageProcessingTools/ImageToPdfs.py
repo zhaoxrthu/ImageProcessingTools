@@ -52,11 +52,11 @@ class itp():
         picList, picNameList = [], []
         self.fp = []
         sumSize = 0
-        for picName in os.listdir(fdPath):
-            _, suffix = picName.split(".")
-            if suffix.lower() in ["jpg", "jpeg", "png", "bmp"]:
-                picNameList.append(picName)
         try:
+            for picName in os.listdir(fdPath):
+                suffix = picName.split(".")[-1]
+                if suffix.lower() in ["jpg", "jpeg", "png", "bmp"]:
+                    picNameList.append(picName)
             picNameList = natsort.natsorted(picNameList)
         except:
             return []
