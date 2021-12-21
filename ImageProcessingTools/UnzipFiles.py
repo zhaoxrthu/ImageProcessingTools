@@ -40,7 +40,7 @@ class uzf():
                 fz = zipfile.ZipFile(self.srcPath +'//' + name, 'r')
                 for file in fz.namelist():
                     fz.extract(file, self.resPath)
-                self.SuccedList.append(name)      
+                self.SuccedList.append(name)
                 print(name + ' unzip successd!')
             except:
                 self.FailedList.append(name)
